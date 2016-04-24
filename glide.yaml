@@ -1,0 +1,19 @@
+package: github.com/nii236/nii-forex
+import:
+- package: github.com/Sirupsen/logrus
+- package: github.com/gofinance/ib
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/micro/go-micro
+  subpackages:
+  - client
+  - server
+  - '...'
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: github.com/micro/go-plugins
+  subpackages:
+  - '...'
+- package: github.com/micro/micro

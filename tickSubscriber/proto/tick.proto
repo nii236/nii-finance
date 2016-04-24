@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service TickRecorder {
+    rpc TickHandler(TickRequest) returns (TickResponse) {}
+}
+
+message TickRequest {
+    string pair = 1;
+}
+
+message TickResponse {
+  int64 time = 1;
+  int32 bid = 2;
+  int32 ask = 3;
+  int32 last = 4;
+}
+
+message Ping {
+	int64 stroke = 1;
+}
+
+message Message {
+	string say = 1;
+}

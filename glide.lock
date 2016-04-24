@@ -1,0 +1,110 @@
+hash: 76ecae3653fc2256e7d14358e072d2165eb1244c48d161b7a7074f67bde0e1ce
+updated: 2016-04-22T16:11:37.734380924+08:00
+imports:
+- name: github.com/apcera/nats
+  version: b258f90beb7c1e3a45037b4f9b5bdadcde9cc42d
+- name: github.com/gofinance/ib
+  version: a4ab53e2f3cb2c6ceac8bf34c459509db823bde5
+- name: github.com/golang/protobuf
+  version: bf531ff1a004f24ee53329dfd5ce0b41bfdc17df
+  subpackages:
+  - proto
+- name: github.com/gorilla/context
+  version: 1ea25387ff6f684839d82767c1733ff4d4d15d0a
+- name: github.com/gorilla/handlers
+  version: 66e6c6f01d8da976ee113437745ca029c2b585a6
+- name: github.com/gorilla/mux
+  version: 0eeaf8392f5b04950925b8a69fe70f110fa7cbfc
+- name: github.com/gorilla/websocket
+  version: 6b3d49710be714c8355967d41b95295d4928cf54
+- name: github.com/hashicorp/consul
+  version: 763711686ae954b603d58a0980180ab5a910655d
+  subpackages:
+  - api
+  - watch
+- name: github.com/hashicorp/go-cleanhttp
+  version: 875fb671b3ddc66f8e2f0acc33829c8cb989a38d
+- name: github.com/hashicorp/serf
+  version: e4ec8cc423bbe20d26584b96efbeb9102e16d05f
+  subpackages:
+  - coordinate
+  - serf
+- name: github.com/micro/cli
+  version: 3d2263bb092286dde294a31049c92665f8373820
+- name: github.com/micro/go-micro
+  version: f27b2b8c733548ad542050bb7fbc082c840dc108
+  subpackages:
+  - client
+  - server
+  - '...'
+  - broker
+  - registry
+  - transport
+  - cmd
+  - codec
+  - codec/jsonrpc
+  - codec/protorpc
+  - errors
+  - metadata
+  - selector
+  - server/debug
+  - server/debug/proto
+- name: github.com/micro/go-plugins
+  version: c310fa0be9be69679adc7da0f2ae4f0eb6827e4e
+  subpackages:
+  - '...'
+  - broker/nats
+  - registry/nats
+  - transport/nats
+- name: github.com/micro/hipchat
+  version: 4c67119ac95631194e09dac5ac0239e8251d1200
+  subpackages:
+  - xmpp
+- name: github.com/micro/micro
+  version: ea74199a10562c5210ab30a05f59311851176746
+  subpackages:
+  - api
+  - bot
+  - car
+  - cli
+  - web
+  - api/proto
+  - internal/handler
+  - internal/helper
+  - internal/server
+  - internal/stats
+  - bot/command
+  - bot/input
+  - bot/input/hipchat
+  - bot/input/slack
+  - internal/command
+- name: github.com/micro/misc
+  version: d3acf0301548a9e3da851f1bfa0134c1b4047814
+  subpackages:
+  - lib/tls
+- name: github.com/mitchellh/hashstructure
+  version: 95415bb46460fb895bab077547e323b42b0df8da
+- name: github.com/nats-io/nats
+  version: b258f90beb7c1e3a45037b4f9b5bdadcde9cc42d
+  subpackages:
+  - encoders/builtin
+- name: github.com/nats-io/nuid
+  version: a5152d67cf63cbfb5d992a395458722a45194715
+- name: github.com/nlopes/slack
+  version: 7530ef00e32bc4b6fe93b49551b0bf457427c289
+- name: github.com/pborman/uuid
+  version: c55201b036063326c5b1b89ccfe45a184973d073
+- name: github.com/serenize/snaker
+  version: 8824b61eca66d308fcb2d515287d3d7a28dba8d6
+- name: github.com/Sirupsen/logrus
+  version: 081307d9bc1364753142d5962fc1d795c742baaf
+- name: golang.org/x/net
+  version: 815d315ead425c4365077d904a2331ee9e179820
+  subpackages:
+  - context
+  - websocket
+- name: golang.org/x/sys
+  version: f64b50fbea64174967a8882830d621a18ee1548e
+  subpackages:
+  - unix
+devImports: []
