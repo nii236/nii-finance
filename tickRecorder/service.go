@@ -4,15 +4,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	micro "github.com/micro/go-micro"
 	server "github.com/nii236/nii-forex/tickRecorder/server"
-	"github.com/nii236/nii-forex/tickSubscriber/proto"
-	"golang.org/x/net/context"
 )
-
-type Tick struct{}
-
-func (t *Tick) TickHandler(ctx context.Context, req *tick.TickRequest, rsp *tick.TickResponse) error {
-	return nil
-}
 
 var (
 	natsURL = "192.168.99.100:32773"

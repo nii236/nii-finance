@@ -1,31 +1,15 @@
 package server
 
 import (
-	"os"
-
 	"github.com/Sirupsen/logrus"
 	"github.com/micro/go-micro/broker"
+	"github.com/micro/go-micro/examples/server/subscriber"
 	"github.com/micro/go-micro/registry"
 	"github.com/micro/go-micro/server"
 	"github.com/micro/go-micro/transport"
-	natsBroker "github.com/micro/go-plugins/broker/nats"
-	natsRegistry "github.com/micro/go-plugins/registry/nats"
-	natsTransport "github.com/micro/go-plugins/transport/nats"
-	"github.com/nii236/nii-forex/tickSubscriber/server/subscriber"
 )
 
-var (
-	log *logrus.Logger
-
-	// sigChan receives os signals.
-	sigChan = make(chan os.Signal, 1)
-	// complete is used to report processing is done.
-	complete = make(chan error)
-	// shutdown provides system wide notification.
-	shutdown = make(chan struct{})
-	refresh  = make(chan bool)
-	natsURL  = "192.168.99.100:32773"
-)
+var log *logrus.Logger
 
 func getOptions(o *server.Options) {
 	o.Broker = newNatsBroker()
