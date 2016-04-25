@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"os"
 	"os/signal"
 
@@ -25,7 +24,8 @@ func exec() {
 	defer e.Stop()
 
 	if err != nil {
-		fmt.Println("ERROR!", err)
+		log.Infoln("ERROR!", err)
+
 		return
 	}
 
@@ -41,7 +41,7 @@ func exec() {
 	im, err := ib.NewInstrumentManager(e, *usdjpy)
 
 	if err != nil {
-		fmt.Println(err)
+		log.Infoln(err)
 	}
 
 	go last(im)
@@ -84,9 +84,9 @@ func last(i *ib.InstrumentManager) {
 	for {
 		select {
 		case <-i.Refresh():
-			fmt.Println(i.Bid())
-			fmt.Println(i.Ask())
-			fmt.Println(i.Last())
+			log.Infoln(i.Bid())
+			log.Infoln(i.Ask())
+			log.Infoln(i.Last())
 		}
 	}
 
@@ -96,8 +96,8 @@ func timeChan(ctm *ib.CurrentTimeManager) {
 	for {
 		select {
 		case <-ctm.Refresh():
-			fmt.Println("CTM Refresh")
-			fmt.Println(ctm.Time())
+			log.Infoln("CTM Refresh")
+			log.Infoln(ctm.Time())
 		}
 	}
 }

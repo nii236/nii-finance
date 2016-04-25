@@ -7,8 +7,7 @@ import (
 )
 
 var (
-	natsURL = "192.168.99.100:32773"
-	log     *logrus.Logger
+	log *logrus.Logger
 )
 
 func getOptions(o *micro.Options) {
@@ -17,6 +16,8 @@ func getOptions(o *micro.Options) {
 
 func main() {
 	log = logrus.New()
+	log.Info("Starting tickRecorder service...")
 	service := micro.NewService(getOptions)
 	service.Run()
+
 }

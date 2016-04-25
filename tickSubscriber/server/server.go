@@ -3,6 +3,8 @@ package server
 import (
 	"os"
 
+	"flag"
+
 	"github.com/Sirupsen/logrus"
 	"github.com/micro/go-micro/broker"
 	"github.com/micro/go-micro/registry"
@@ -11,7 +13,7 @@ import (
 	natsBroker "github.com/micro/go-plugins/broker/nats"
 	natsRegistry "github.com/micro/go-plugins/registry/nats"
 	natsTransport "github.com/micro/go-plugins/transport/nats"
-	"github.com/nii236/nii-forex/tickSubscriber/server/subscriber"
+	"github.com/nii236/nii-forex/tickSubscriber/handler"
 )
 
 var (
@@ -51,13 +53,18 @@ func newNatsTransport() transport.Transport {
 	})
 }
 
+// NewNatsServer will return a microservice instance to be used by go-micro's service.Run() func
 func NewNatsServer() server.Server {
+	flag.Parse()
 
 	log = logrus.New()
 	s := server.NewServer(getOptions)
-	log.Infoln("New server", s.String())
-
-	s.Subscribe(s.NewSubscriber("topic.go.micro.srv.example", subscriber.Handler))
-
+	log.Infoln("Starting pair subscription service...")
+	s.Handle(
+		s.NewHandler(
+			new(handler.Tick),
+		),
+	)
+	log.Infoln("context:", s.Options().Context.Value("pair"))
 	return s
 }

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service TickSubscriber {
+		rpc StartSubcription(SubscribeRequest) returns (SubscribeResponse) {}
+}
+
+message Tick {
+	string pair = 1;
+	int64 time = 2;
+	int32 bid = 3;
+	int32 ask = 4;
+	int32 last = 5;
+}
+
+message SubscribeRequest {
+	string pair = 1;
+}
+
+message SubscribeResponse {
+	string error = 1;
+}
