@@ -4,7 +4,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/micro/cli"
 	micro "github.com/micro/go-micro"
-	server "github.com/nii236/nii-forex/tickSubscriber/server"
+	server "github.com/nii236/nii-finance/tickSubscriber/server"
 )
 
 var (

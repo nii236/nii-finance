@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/Sirupsen/logrus"
 	micro "github.com/micro/go-micro"
-	server "github.com/nii236/nii-forex/tickRecorder/server"
+	server "github.com/nii236/nii-finance/tickRecorder/server"
 )
 
 var (

@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/Sirupsen/logrus"
-	"github.com/nii236/nii-forex/tickSubscriber/proto"
+	"github.com/nii236/nii-finance/tickSubscriber/proto"
 	"golang.org/x/net/context"
 )
 

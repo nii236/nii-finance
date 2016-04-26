@@ -13,7 +13,7 @@ import (
 	natsBroker "github.com/micro/go-plugins/broker/nats"
 	natsRegistry "github.com/micro/go-plugins/registry/nats"
 	natsTransport "github.com/micro/go-plugins/transport/nats"
-	"github.com/nii236/nii-forex/tickSubscriber/handler"
+	"github.com/nii236/nii-finance/tickSubscriber/handler"
 )
 
 var (

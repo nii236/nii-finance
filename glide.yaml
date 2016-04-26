@@ -1,4 +1,4 @@
-package: github.com/nii236/nii-forex
+package: github.com/nii236/nii-finance
 import:
 - package: github.com/Sirupsen/logrus
 - package: github.com/gofinance/ib
