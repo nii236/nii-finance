@@ -4,7 +4,8 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/micro/cli"
 	micro "github.com/micro/go-micro"
-	server "github.com/nii236/nii-finance/tickSubscriber/server"
+	"github.com/micro/go-micro/cmd"
+	"github.com/nii236/nii-finance/tickSubscriber/client"
 )
 
 var (
@@ -14,31 +15,38 @@ var (
 )
 
 type settingsContainer struct {
-	Pair string
+	pair     string
+	currency string
 }
 
 func getOptions(o *micro.Options) {
-	o.Server = server.NewNatsServer(settings.Pair)
+	o.Client = client.NewNatsClient(settings.pair, settings.currency)
 }
 
 func main() {
+	cmd.Init()
 	log = logrus.New()
+
 	service := micro.NewService(
 		micro.Flags(cli.StringFlag{
 			Name:   "pair",
-			Value:  "AUDUSD",
-			Usage:  "Select pair to subsribe",
+			Value:  "USD",
+			Usage:  "Select pair to subscribe",
 			EnvVar: "PAIR",
 		}),
-		micro.Action(func(c *cli.Context) {
-			settings.Pair = c.String("pair")
+		micro.Flags(cli.StringFlag{
+			Name:   "currency",
+			Value:  "JPY",
+			Usage:  "Select pair to subscribe",
+			EnvVar: "CURRENCY",
 		}),
-	)
-
-	service.Init(
+		micro.Action(func(c *cli.Context) {
+			settings.pair = c.String("pair")
+			settings.currency = c.String("currency")
+		}),
 		micro.Name("PairSubscriber"),
-		getOptions,
 	)
-	log.Infoln("Starting pair subscription service for:", settings.Pair)
-	service.Run()
+	service.Init(getOptions)
+	go exec(settings.pair, settings.currency)
+	select {}
 }

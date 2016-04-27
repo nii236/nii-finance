@@ -1,4 +1,4 @@
-package main
+package client
 
 import (
 	"github.com/Sirupsen/logrus"
@@ -39,14 +39,14 @@ func newNatsTransport() transport.Transport {
 	})
 }
 
-func NewNatsClient() client.Client {
-	return client.NewClient(getOptions)
-}
-
-func main() {
+func NewNatsClient(pair string, currency string) client.Client {
+	log = logrus.New()
+	log.Infoln("Starting up tickSubscriber...")
+	log.Infoln("Pair:", pair)
+	log.Infoln("Currency:", currency)
 	cmd.Init()
 	log = logrus.New()
 	client.NewClient(getOptions)
-
 	log.Info("Running tick subscriber client...")
+	return client.NewClient(getOptions)
 }
