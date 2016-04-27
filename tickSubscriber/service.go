@@ -62,7 +62,7 @@ func pub(time int64, bid float64, ask float64, last float64) {
 		Ask:  ask,
 		Last: last,
 	}
-	p := service.Client().NewPublication("go.micro.srv.tickRecorder", tick)
+	p := service.Client().NewPublication("go.micro.srv.tickStream", tick)
 	ctx := metadata.NewContext(context.Background(), map[string]string{
 		"X-User-Id": "nii236",
 		"X-From-Id": "tickSubscriber",

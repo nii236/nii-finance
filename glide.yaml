@@ -17,3 +17,6 @@ import:
   subpackages:
   - '...'
 - package: github.com/micro/micro
+- package: github.com/influxdata/influxdb
+  subpackages:
+  - client/v2
