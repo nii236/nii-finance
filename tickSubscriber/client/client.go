@@ -12,7 +12,7 @@ import (
 	natsTransport "github.com/micro/go-plugins/transport/nats"
 )
 
-var natsURL = "192.168.99.100:32773"
+var natsURL = "192.168.99.100:4222"
 var log *logrus.Logger
 
 func getOptions(o *client.Options) {

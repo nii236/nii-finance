@@ -1,0 +1,32 @@
+version: '2'
+services:
+  tick_subscriber:
+    build: ./tickSubscriber
+    depends_on:
+     - nats
+     - influx
+  tick_recorder:
+    build: ./tickRecorder
+    depends_on:
+     - nats
+     - influx
+     - ib_gateway
+  nats:
+    image: nats
+    ports:
+    - "4222:4222"
+    - "6222:6222"
+    - "8222:8222"
+  influx:
+    image: tutum/influxdb:0.12
+    ports:
+    - "8083:8083"
+    - "8086:8086"
+    volumes:
+    - /var/influxdb:/data
+    environment:
+    - PRE_CREATE_DB="tick"
+  ib_gateway:
+    build: ./ibGateway
+    ports:
+    - "4003:4003"

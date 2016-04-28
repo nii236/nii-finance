@@ -12,7 +12,6 @@ import (
 )
 
 var (
-	natsURL  = "192.168.99.100:32773"
 	log      *logrus.Logger
 	settings = settingsContainer{}
 	service  micro.Service

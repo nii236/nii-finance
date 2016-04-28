@@ -14,7 +14,7 @@ import (
 )
 
 var log *logrus.Logger
-var natsURL = "192.168.99.100:32773"
+var natsURL = "192.168.99.100:4222"
 
 func getOptions(o *server.Options) {
 	o.Broker = newNatsBroker()

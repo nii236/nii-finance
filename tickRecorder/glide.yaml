@@ -1,0 +1,23 @@
+package: github.com/nii236/nii-finance/tickRecorder
+import:
+- package: github.com/Sirupsen/logrus
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/influxdata/influxdb
+  subpackages:
+  - client/v2
+- package: github.com/micro/go-micro
+  subpackages:
+  - broker
+  - registry
+  - server
+  - transport
+- package: github.com/micro/go-plugins
+  subpackages:
+  - broker/nats
+  - registry/nats
+  - transport/nats
+- package: golang.org/x/net
+  subpackages:
+  - context

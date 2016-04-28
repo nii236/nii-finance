@@ -1,5 +1,5 @@
-hash: eff6a2da92f3139a164c4d15b5e92babed8b84ce4126131146f29d5c458befc8
-updated: 2016-04-27T13:32:33.215011543+08:00
+hash: 7d5f28d9e3dd3b990338a5f934e879f901e1d68b55b8ec570d73eaacc6342894
+updated: 2016-04-28T09:17:28.385416884+08:00
 imports:
 - name: github.com/apcera/nats
   version: 75f910b34951523b486204cc0eaecde0368958d7
@@ -7,14 +7,12 @@ imports:
   version: 2dac3f59a0f5c9a46e5ee307ce6c972809129005
   subpackages:
   - packets
-- name: github.com/gofinance/ib
-  version: a4ab53e2f3cb2c6ceac8bf34c459509db823bde5
 - name: github.com/golang/protobuf
   version: 7cc19b78d562895b13596ddce7aafb59dd789318
   subpackages:
   - proto
 - name: github.com/hashicorp/consul
-  version: 178d58721a7cd602082e80fbe8530a840ea2ea5e
+  version: c0f98271ee1c93da6ee09d3b22c8b3439c0a6988
   subpackages:
   - api
   - watch
@@ -26,52 +24,44 @@ imports:
   - coordinate
   - serf
 - name: github.com/influxdata/influxdb
-  version: 662ead753b56dacee72f67d093d920729f73a3da
+  version: c578602985a0d5e675451ae8ca838490d0cfb7f0
   subpackages:
   - client/v2
   - models
   - pkg/escape
-- name: github.com/influxdb/influxdb
-  version: 662ead753b56dacee72f67d093d920729f73a3da
-  subpackages:
-  - client/v2
 - name: github.com/micro/cli
   version: 3d2263bb092286dde294a31049c92665f8373820
 - name: github.com/micro/go-micro
-  version: 65a880fadd5890addef86b93d279e1a6a3d68c55
+  version: 796dba3aac918125dacfc5898a3a336e5e45717d
   subpackages:
-  - client
-  - server
-  - '...'
-  - cmd
   - broker
   - registry
+  - server
   - transport
+  - client
+  - cmd
   - metadata
-  - broker/http
-  - broker/mqtt
-  - registry/consul
   - selector
-  - selector/blacklist
-  - selector/cache
-  - selector/random
-  - selector/roundrobin
-  - transport/http
   - errors
   - codec
   - codec/jsonrpc
   - codec/protorpc
   - server/debug
   - server/debug/proto
+  - broker/http
+  - broker/mqtt
+  - registry/consul
+  - selector/blacklist
+  - selector/cache
+  - selector/random
+  - selector/roundrobin
+  - transport/http
 - name: github.com/micro/go-plugins
   version: 62f0ed37dcbf0e112145d55804623f09f08e5fea
   subpackages:
-  - '...'
-  - registry/nats
   - broker/nats
+  - registry/nats
   - transport/nats
-- name: github.com/micro/micro
-  version: c115b1bea81d5799a979564b5842227e4b57304f
 - name: github.com/micro/misc
   version: d3acf0301548a9e3da851f1bfa0134c1b4047814
   subpackages:
@@ -89,12 +79,12 @@ imports:
 - name: github.com/Sirupsen/logrus
   version: cd7d1bbe41066b6c1f19780f895901052150a575
 - name: golang.org/x/net
-  version: cb0ed7acc4f717d79a358093419e5a7da09b8b45
+  version: 1aafd77e1e7f6849ad16a7bdeb65e3589a10b2bb
   subpackages:
   - context
   - websocket
 - name: golang.org/x/sys
-  version: f64b50fbea64174967a8882830d621a18ee1548e
+  version: c8bc69bc2db9c57ccf979550bc69655df5039a8a
   subpackages:
   - unix
 devImports: []
