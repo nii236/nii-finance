@@ -1,31 +1,19 @@
 version: '2'
 services:
   greeter:
-    build: ./services/greeter
-    restart: on-failure
-  nats:
-    image: nats:0.8.0
-    ports:
-    - "4222:4222"
-    - "6222:6222"
-    - "8222:8222"
-  influx:
-    image: influxdb:0.13
-    ports:
-    - "8083:8083"
-    - "8086:8086"
-    volumes:
-    - /var/influxdb:/data
-    environment:
-    - PRE_CREATE_DB=tick
-  telegraf:
-    image: telegraf:0.13
-    ports:
-    - "8125:8125"
-    - "8092:8092"
-    - "8094:8094"
-    volumes:
-    - ./services/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    image: microhq/greeter-srv
+    command:  --registry_address consul
     depends_on:
-    - "nats"
-    restart: on-failure
+    - nats
+    - consul
+  micro:
+    image: microhq/micro
+    command: --registry_address consul sidecar
+    depends_on:
+    - nats
+    - consul
+  consul:
+    image: consul:v0.6.4
+    ports:
+    - "8500:8500"
+    command: consul agent -dev -client=0.0.0.0

@@ -5,6 +5,18 @@ It will cover code, thoughts, services, parameters and ideas.
 
 Once we have a more solid idea of what we are building, a block diagram will be drawn using https://www.draw.io/.
 
+# Quickstart
+
+Install [Docker](https://www.docker.com/). Then run:
+
+`docker-compose up`
+
+A simple microservice will start up. All it contains is the greeter microservice. Practice writing a client that connects to the sidecar and sends a request to the greeter microservice. Example code for python and ruby can be found [here](https://github.com/micro/micro/tree/master/examples/greeter/client). When you are done run:
+
+`docker-compose down`
+
+To close down the containers.
+
 # Collaboration
 The git repo is located [here](https://open-algot.servebeer.com/).
 
