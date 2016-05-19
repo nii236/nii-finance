@@ -9,7 +9,7 @@ import (
 	_ "github.com/micro/go-plugins/broker/nats"
 	_ "github.com/micro/go-plugins/registry/nats"
 	_ "github.com/micro/go-plugins/transport/nats"
-	proto "github.com/nii236/open-algot-platform/services/greeter/proto"
+	proto "gitlab.com/open-algot/open-algot-platform/services/greeter/proto"
 	"golang.org/x/net/context"
 )
 

@@ -10,9 +10,12 @@ gnatsd
 ## Compiling the Greeter Microservice
 
 ### Standard
+Download the latest [glide](https://github.com/Masterminds/glide/releases) for dependency management and place it in your PATH.
+
 Compile the project. Make sure you have [Go 1.6](golang.org/) installed.
 ```bash
 cd services/greeter
+glide up
 go build
 ```
 
