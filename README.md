@@ -1,61 +1,53 @@
-# Algotrading Platform
+# Spinup Instructions
+## Start the Message Queue
+
+Download the latest nats server from [here](https://github.com/nats-io/gnatsd/releases/latest). Extract the binary into your PATH.
+
+Run the nats server.
+```bash
+gnatsd
+```
+## Compiling the Greeter Microservice
+
+### Standard
+Compile the project. Make sure you have [Go 1.6](golang.org/) installed.
+```bash
+cd services/greeter
+go build
+```
 
 
-This document covers the plan for the collaborative algorithmic trading platform by the members of open-algot, a Slack group from Reddit's `/r/algotrading` community.
+### Docker
+Or compile it with Docker.
 
-It will cover code, thoughts, services, parameters and ideas.
+Set GOOS and GOARCH to your environment of choice. GOOS can be `windows`, `linux` or `osx`. GOARCH can be `386` or `amd64`.
+```bash
+cd services/greeter
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp  GOOS=linux -e GOARCH=386 golang:1.6 go build -v
+```
 
-Once we have a more solid idea of what we are building, a block diagram will be drawn using https://www.draw.io/.
+## Running the Microservice
+Run the microservice.
+```bash
+./greeter \
+--broker nats \
+--broker_address localhost:4222 \
+--transport nats \
+--transport_address localhost:4222 \
+--registry nats \
+--registry_address localhost:4222
+```
 
-# Services
+Run the client.
+```bash
+./greeter \
+--broker nats \
+--broker_address localhost:4222 \
+--transport nats \
+--transport_address localhost:4222 \
+--registry nats \
+--registry_address localhost:4222 \
+--client
+```
 
-## DataDownloader
-This will be a base class that will download data, people can implement it to use whatever data storage system they'd like.
-
-## Backtester
-A system that feeds data to an algorithm and sends trades to a bookkeeper service (tradingBook)
-
-
-## Optimiser
-This microservice will launch many instances of the backtester instance, and through genetic or bruteforce optimisation, it will find the best parameters of the algo for a certain time period. Also generates a data dump that is used by graphAnalyser
-
-## Live Algo Monitoring Tools (Web UI)
-
-
-
-## TradingBook
-A microservice that keeps track of trades that are passed to it via a messaging bus and these trades can be routed to a broker from there. Also records these trades for analysis later (equity curves, metrics)
-
-## graphAnalyser
-This module is a stand alone tool that takes data dumps from other modules like the backtester which contain information about trades performed, and makes equity curves, and calculates other metrics (Alpha, Sharpe Ratio, etc.)
-
-
-## TickProvider
-`TickProvider` will fetch the tick data from the database and return it to the requester.
-
-
-## TickSubscribers
-`TickSubscriber` subscribes to a broker's API, and on each tick will send the data to the database for recording.
-
-### Params
-- TimePeriod
-- Resolution
-- Symbol
-
-
-## General interface to Broker APIs 
-
-### Params (general)
-- Time period
-- Resolution
-- Symbols
-- Market(FX - Equities - Derivatives - Futures)
-- Broker
-
-
-- implementations to Broker APIs
-
-## Repo
-https://open-algot.servebeer.com/
-
-
+This outputs `Hello ${NAME}`.
