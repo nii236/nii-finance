@@ -4,13 +4,11 @@ services:
     image: microhq/greeter-srv
     command:  --registry_address consul
     depends_on:
-    - nats
     - consul
   micro:
     image: microhq/micro
     command: --registry_address consul sidecar
     depends_on:
-    - nats
     - consul
   consul:
     image: consul:v0.6.4
