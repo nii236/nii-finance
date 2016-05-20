@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package go.srv.TickRecorder;
+
+message Tick {
+  int64 time = 1;
+  double bid = 2;
+  double ask = 3;
+  double last = 4;
+  string pair = 5;
+  string broker = 6;
+}
