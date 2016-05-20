@@ -1,0 +1,71 @@
+hash: f796e54658b1258598dcc2b5f2d37242b13c8a56f545b589b245383b0045a2ec
+updated: 2016-05-20T23:41:36.668135757+08:00
+imports:
+- name: github.com/eclipse/paho.mqtt.golang
+  version: 2dac3f59a0f5c9a46e5ee307ce6c972809129005
+  subpackages:
+  - packets
+- name: github.com/golang/protobuf
+  version: cd85f19845cc96cc6e5269c894d8cd3c67e9ed83
+  subpackages:
+  - proto
+- name: github.com/hashicorp/consul
+  version: f6fef66e1bf17be4f3c9855fbec6de802ca6bd7d
+  subpackages:
+  - api
+  - watch
+- name: github.com/hashicorp/go-cleanhttp
+  version: 875fb671b3ddc66f8e2f0acc33829c8cb989a38d
+- name: github.com/hashicorp/serf
+  version: e4ec8cc423bbe20d26584b96efbeb9102e16d05f
+  subpackages:
+  - coordinate
+  - serf
+- name: github.com/micro/cli
+  version: 3d2263bb092286dde294a31049c92665f8373820
+- name: github.com/micro/go-micro
+  version: c0eac7dda8316bae7906d3c5d2533bcc82882dfb
+  subpackages:
+  - cmd
+  - server
+  - broker
+  - client
+  - metadata
+  - registry
+  - selector
+  - transport
+  - broker/http
+  - broker/mqtt
+  - registry/consul
+  - registry/mdns
+  - selector/cache
+  - transport/http
+  - codec
+  - codec/jsonrpc
+  - codec/protorpc
+  - server/debug
+  - server/debug/proto
+  - errors
+  - selector/internal/blacklist
+- name: github.com/micro/mdns
+  version: d37bec73c909e7cb2930877f877e63dde9998d25
+- name: github.com/micro/misc
+  version: d3acf0301548a9e3da851f1bfa0134c1b4047814
+  subpackages:
+  - lib/tls
+- name: github.com/miekg/dns
+  version: 75e6e86cc601825c5dbcd4e0c209eab180997cd7
+- name: github.com/mitchellh/hashstructure
+  version: 95415bb46460fb895bab077547e323b42b0df8da
+- name: github.com/pborman/uuid
+  version: c55201b036063326c5b1b89ccfe45a184973d073
+- name: golang.org/x/net
+  version: 8a52c78636f6b7be1b1e5cb58b01a85f1e082659
+  subpackages:
+  - context
+  - websocket
+  - ipv4
+  - ipv6
+  - bpf
+  - internal/iana
+devImports: []

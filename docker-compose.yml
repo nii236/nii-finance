@@ -1,5 +1,11 @@
 version: '2'
 services:
+  oandaTickSubscriber:
+    build: ./services/OandaTickSubscriber
+    command: --registry_address consul
+  tickRecorder:
+    build: ./services/TickRecorder
+    command: --registry_address consul
   greeter:
     image: microhq/greeter-srv
     command:  --registry_address consul

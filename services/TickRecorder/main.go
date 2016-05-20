@@ -6,7 +6,7 @@ import (
 	micro "github.com/micro/go-micro"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/server"
-	"gitlab.com/open-algot/open-algot-platform/services/TickRecorder/subscriber"
+	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/subscriber"
 )
 
 func opts(o *micro.Options) {

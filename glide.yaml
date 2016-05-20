@@ -1,0 +1,12 @@
+package: open-algot.servebeer.com/open-algot/open-algot-platform
+import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/micro/go-micro
+  subpackages:
+  - cmd
+  - server
+- package: golang.org/x/net
+  subpackages:
+  - context

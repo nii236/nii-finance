@@ -8,8 +8,8 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/metadata"
-	proto "gitlab.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 	"golang.org/x/net/context"
+	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 )
 
 type pairslice []string

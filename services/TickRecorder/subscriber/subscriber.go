@@ -3,8 +3,8 @@ package subscriber
 import (
 	"log"
 
-	proto "gitlab.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 	"golang.org/x/net/context"
+	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 )
 
 type Tick struct{}
