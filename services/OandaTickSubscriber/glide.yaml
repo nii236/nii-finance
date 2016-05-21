@@ -1,0 +1,10 @@
+package: open-algot.servebeer.com/open-algot/open-algot-platform/services/OandaTickSubscriber
+import:
+- package: github.com/micro/go-micro
+  subpackages:
+  - client
+  - cmd
+  - metadata
+- package: golang.org/x/net
+  subpackages:
+  - context

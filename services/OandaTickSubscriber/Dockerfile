@@ -1,5 +1,8 @@
-FROM golang:1.6
-RUN go get -v -d github.com/nii236/TickSubscriberOanda
-WORKDIR /go/src/github.com/nii236/TickSubscriberOanda
-RUN go run main.go
-
+FROM golang:1.6-alpine
+RUN apk update && apk add git
+RUN go get github.com/Masterminds/glide
+COPY . /go/src/open-algot.servebeer.com/open-algot/open-algot-platform/services/OandaTickSubscriber
+WORKDIR /go/src/open-algot.servebeer.com/open-algot/open-algot-platform/services/OandaTickSubscriber
+RUN glide up
+RUN go build
+CMD ["./OandaTickSubscriber"]
