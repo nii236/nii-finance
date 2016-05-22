@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"math/rand"
 	"sync"
 	"time"
 
@@ -18,6 +19,7 @@ var pairs pairslice
 
 func main() {
 	cmd.Init()
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 	t := time.NewTicker(1 * time.Second)
@@ -27,16 +29,17 @@ func main() {
 			"X-User-Id": "john",
 			"X-From-Id": "script",
 		})
+		tmpbid := 100.0 + rand.Float64()
 		msg := client.NewPublication("go.micro.srv.TickRecorder", &proto.Tick{
-			Time:   123,
-			Bid:    1,
-			Ask:    2,
-			Last:   3,
+			Time:   time.Now().Unix(),
+			Bid:    tmpbid,
+			Ask:    tmpbid + r.Float64(),
+			Last:   100.0 + r.Float64(),
 			Pair:   "AUDUSD",
-			Broker: "Oanda",
+			Broker: "oanda",
 		})
 		if err := client.Publish(ctx, msg); err != nil {
-			log.Println("pub err: ", err)
+			log.Println("publish err: ", err)
 		}
 		log.Println("Done")
 	}

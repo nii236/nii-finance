@@ -24,6 +24,9 @@ func main() {
 		server.NewSubscriber(
 			"go.micro.srv.TickRecorder",
 			new(subscriber.Tick),
+			func(so *server.SubscriberOptions) {
+				so.Queue = "tickqueue1"
+			},
 		),
 	); err != nil {
 		log.Fatal(err)
