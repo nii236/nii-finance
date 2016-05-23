@@ -22,6 +22,8 @@ services:
   sidecar:
     image: microhq/micro
     command: --registry_address consul sidecar
+    ports:
+    - "8081:8081"
     depends_on:
     - consul
   consul:
