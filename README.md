@@ -11,7 +11,18 @@ Install [Docker](https://www.docker.com/). Then run:
 
 `docker-compose up`
 
-A simple microservice will start up. All it contains is the greeter microservice. Practice writing a client that connects to the sidecar and sends a request to the greeter microservice. Example code for python and ruby can be found [here](https://github.com/micro/micro/tree/master/examples/greeter/client). When you are done run:
+A simple microservice will start up. It contains:
+
+- A greeter microservice
+- A mock tick data generator
+- A tick data subscriber
+- Consul for registry
+
+HTTP is still used for communication between services, but that will change when I get more time.
+
+Practice writing a client that connects to the sidecar and sends a request to the greeter microservice. Example code for python and ruby can be found [here](https://github.com/micro/micro/tree/master/examples/greeter/client). This is an example of a synchroous call. For asynchronous try to hook into the "go.micro.srv.TickRecorder" topic, through the sidecar.
+
+When you are done run:
 
 `docker-compose down`
 

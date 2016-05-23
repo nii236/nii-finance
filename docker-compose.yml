@@ -1,11 +1,25 @@
 version: '2'
 services:
+  oandaticksubscriber:
+    build:
+      dockerfile: ./services/OandaTickSubscriber/Dockerfile
+      context: ./
+    command: --registry_address consul
+    depends_on:
+    - consul
+  tickrecorder:
+    build:
+      dockerfile: ./services/TickRecorder/Dockerfile
+      context: ./
+    command: --registry_address consul
+    depends_on:
+    - consul
   greeter:
     image: microhq/greeter-srv
     command:  --registry_address consul
     depends_on:
     - consul
-  micro:
+  sidecar:
     image: microhq/micro
     command: --registry_address consul sidecar
     depends_on:
