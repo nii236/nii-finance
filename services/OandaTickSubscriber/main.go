@@ -29,10 +29,6 @@ func main() {
 	for _, add := range addrs {
 		log.Println(add.Network()+":", add.String())
 	}
-
-	for _, addr := range addrs {
-		addr.Network()
-	}
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	wg := sync.WaitGroup{}
 	wg.Add(1)

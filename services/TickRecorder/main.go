@@ -1,11 +1,12 @@
 package main
 
 import (
+	"log"
+	"net"
+
 	micro "github.com/micro/go-micro"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/server"
-	"log"
-	"net"
 	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/subscriber"
 )
 
@@ -33,9 +34,15 @@ func main() {
 		server.NewSubscriber(
 			"go.micro.srv.TickRecorder",
 			new(subscriber.Tick),
-			func(so *server.SubscriberOptions) {
-				so.Queue = "tickqueue1"
-			},
+		),
+	); err != nil {
+		log.Fatal(err)
+	}
+
+	if err := s.Server().Subscribe(
+		server.NewSubscriber(
+			"go.micro.srv.BitstampRecorder",
+			new(subscriber.Trade),
 		),
 	); err != nil {
 		log.Fatal(err)
