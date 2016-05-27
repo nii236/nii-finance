@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"math/rand"
+	"net"
 	"sync"
 	"time"
 
@@ -19,6 +20,19 @@ var pairs pairslice
 
 func main() {
 	cmd.Init()
+	log.Println("Starting up Oanda Tick Subscriber...")
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println("Interfaces:")
+	for _, add := range addrs {
+		log.Println(add.Network()+":", add.String())
+	}
+
+	for _, addr := range addrs {
+		addr.Network()
+	}
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	wg := sync.WaitGroup{}
 	wg.Add(1)
