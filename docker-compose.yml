@@ -1,33 +1,40 @@
 version: '2'
 services:
+  nats:
+    image: nats:0.8.0
+    ports:
+    - "4222:4222"
+    - "8222:8222"
   bitstampticksubscriber:
     build:
         dockerfile: ./services/BitstampTickSubscriber/Dockerfile
         context: ./
-    command: --registry_address consul
+    command: --broker nats --registry nats --transport nats --broker_address nats:4222 --registry_address nats:4222 --transport_address nats:4222
+    restart: always
     depends_on:
-    - consul
+    - nats
   tickrecorder:
     build:
       dockerfile: ./services/TickRecorder/Dockerfile
       context: ./
-    command: --registry_address consul
+    restart: always
+    command: --broker nats --registry nats --transport nats --broker_address nats:4222 --registry_address nats:4222 --transport_address nats:4222
     depends_on:
-    - consul
-  greeter:
-    image: microhq/greeter-srv
-    command:  --registry_address consul
-    depends_on:
-    - consul
+    - nats
   sidecar:
-    image: microhq/micro
-    command: --registry_address consul --sidecar_cors * sidecar
+    build:
+      dockerfile: ./services/Sidecar/Dockerfile
+      context: ./
+    command: --broker nats --registry nats --transport nats --broker_address nats:4222 --registry_address nats:4222 --transport_address nats:4222 sidecar
+    restart: always
     ports:
     - "8081:8081"
     depends_on:
-    - consul
-  consul:
-    image: consul:v0.6.4
+    - nats
+  influx:
+    image: influxdb:0.13-alpine
     ports:
-    - "8500:8500"
-    command: consul agent -dev -client=0.0.0.0
+    - "8083:8083"
+    - "8086:8086"
+    depends_on:
+    - nats

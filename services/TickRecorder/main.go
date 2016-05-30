@@ -1,12 +1,17 @@
 package main
 
 import (
-	"log"
 	"net"
+	"time"
+
+	log "github.com/Sirupsen/logrus"
 
 	micro "github.com/micro/go-micro"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/server"
+	_ "github.com/micro/go-plugins/broker/nats"
+	_ "github.com/micro/go-plugins/registry/nats"
+	_ "github.com/micro/go-plugins/transport/nats"
 	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/subscriber"
 )
 
@@ -30,7 +35,7 @@ func main() {
 		log.Println(add.Network()+":", add.String())
 	}
 	s := micro.NewService(opts)
-	if err := s.Server().Subscribe(
+	if err = s.Server().Subscribe(
 		server.NewSubscriber(
 			"go.micro.srv.TickRecorder",
 			new(subscriber.Tick),
@@ -39,7 +44,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err := s.Server().Subscribe(
+	if err = s.Server().Subscribe(
 		server.NewSubscriber(
 			"go.micro.srv.BitstampRecorder",
 			new(subscriber.Trade),
@@ -48,7 +53,21 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err := s.Run(); err != nil {
-		log.Println(err)
+	retry := time.NewTicker(1 * time.Second)
+RetryLoop:
+	for {
+		select {
+		case <-retry.C:
+			if err = s.Options().Broker.Connect(); err != nil {
+				log.Error(err)
+			} else {
+				retry.Stop()
+				break RetryLoop
+			}
+		}
+	}
+
+	if err = s.Run(); err != nil {
+		log.Error(err)
 	}
 }

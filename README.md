@@ -9,7 +9,10 @@ Once we have a more solid idea of what we are building, a block diagram will be 
 
 Install [Docker](https://www.docker.com/). Then run:
 
-`docker-compose up`
+```bash
+$ docker build -t openalgotplatform_go:0.1 .
+$ docker-compose up
+```
 
 A simple microservice will start up. It contains:
 

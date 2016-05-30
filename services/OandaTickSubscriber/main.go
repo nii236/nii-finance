@@ -10,6 +10,9 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/metadata"
+	_ "github.com/micro/go-plugins/broker/nats"
+	_ "github.com/micro/go-plugins/registry/nats"
+	_ "github.com/micro/go-plugins/transport/nats"
 	"golang.org/x/net/context"
 	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 )

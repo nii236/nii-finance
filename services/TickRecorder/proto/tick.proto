@@ -15,4 +15,5 @@ message Trade {
         int64 time = 1;
         double price = 2;
         double amount = 3;
+        int32 type = 4;
 }

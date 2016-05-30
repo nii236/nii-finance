@@ -6,6 +6,9 @@ import (
 	"sync"
 
 	"github.com/micro/go-micro/cmd"
+	_ "github.com/micro/go-plugins/broker/nats"
+	_ "github.com/micro/go-plugins/registry/nats"
+	_ "github.com/micro/go-plugins/transport/nats"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/metadata"

@@ -1,9 +1,4 @@
-FROM golang:1.6-alpine
-RUN apk update && apk add git
-RUN go get github.com/Masterminds/glide
-COPY . /go/src/open-algot.servebeer.com/open-algot/open-algot-platform/
-WORKDIR /go/src/open-algot.servebeer.com/open-algot/open-algot-platform
-RUN glide up
+FROM openalgotplatform_go:0.1
 WORKDIR /go/src/open-algot.servebeer.com/open-algot/open-algot-platform/services/BitstampTickSubscriber
 RUN go install
 ENTRYPOINT ["BitstampTickSubscriber"]
