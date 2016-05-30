@@ -1,9 +1,9 @@
 version: '2'
 services:
-  oandaticksubscriber:
+  bitstampticksubscriber:
     build:
-      dockerfile: ./services/OandaTickSubscriber/Dockerfile
-      context: ./
+        dockerfile: ./services/BitstampTickSubscriber/Dockerfile
+        context: ./
     command: --registry_address consul
     depends_on:
     - consul
@@ -21,7 +21,7 @@ services:
     - consul
   sidecar:
     image: microhq/micro
-    command: --registry_address consul sidecar
+    command: --registry_address consul --sidecar_cors * sidecar
     ports:
     - "8081:8081"
     depends_on:

@@ -1,0 +1,75 @@
+hash: e4a87c923dee06fe23db90f30d13a9258f0e0512378781492ba8d3eaa1757981
+updated: 2016-05-27T17:05:53.026182196+08:00
+imports:
+- name: github.com/eclipse/paho.mqtt.golang
+  version: 2dac3f59a0f5c9a46e5ee307ce6c972809129005
+  subpackages:
+  - packets
+- name: github.com/golang/protobuf
+  version: 9e6977f30c91c78396e719e164e57f9287fff42c
+  subpackages:
+  - proto
+- name: github.com/hashicorp/consul
+  version: 446d76b432b6a099b2a8d899de2cd36c243e2d22
+  subpackages:
+  - api
+  - watch
+- name: github.com/hashicorp/go-cleanhttp
+  version: 875fb671b3ddc66f8e2f0acc33829c8cb989a38d
+- name: github.com/hashicorp/serf
+  version: e4ec8cc423bbe20d26584b96efbeb9102e16d05f
+  subpackages:
+  - coordinate
+  - serf
+- name: github.com/micro/cli
+  version: 3d2263bb092286dde294a31049c92665f8373820
+- name: github.com/micro/go-micro
+  version: 257333a0a3fd967311e2bf2e7ede2a57c056dfd4
+  subpackages:
+  - client
+  - cmd
+  - metadata
+  - server
+  - broker
+  - codec
+  - codec/jsonrpc
+  - codec/protorpc
+  - errors
+  - registry
+  - selector
+  - transport
+  - broker/http
+  - broker/mqtt
+  - registry/consul
+  - registry/mdns
+  - selector/cache
+  - transport/http
+  - server/debug
+  - server/debug/proto
+  - selector/internal/blacklist
+- name: github.com/micro/mdns
+  version: d37bec73c909e7cb2930877f877e63dde9998d25
+- name: github.com/micro/misc
+  version: d3acf0301548a9e3da851f1bfa0134c1b4047814
+  subpackages:
+  - lib/tls
+- name: github.com/miekg/dns
+  version: 75e6e86cc601825c5dbcd4e0c209eab180997cd7
+- name: github.com/mitchellh/hashstructure
+  version: 95415bb46460fb895bab077547e323b42b0df8da
+- name: github.com/pborman/uuid
+  version: c55201b036063326c5b1b89ccfe45a184973d073
+- name: github.com/pusher-community/pusher-websocket-go
+  version: 8872644df4d121342338d3296646ed78269d8a4b
+- name: github.com/pusher/pusher-http-go
+  version: 2bba5f217f6f0f4f0c0a9bb11b945b206b32bec5
+- name: golang.org/x/net
+  version: 30db96677b74e24b967e23f911eb3364fc61a011
+  subpackages:
+  - context
+  - websocket
+  - ipv4
+  - ipv6
+  - bpf
+  - internal/iana
+devImports: []
