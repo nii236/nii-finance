@@ -35,7 +35,7 @@ func main() {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	wg := sync.WaitGroup{}
 	wg.Add(1)
-	t := time.NewTicker(1 * time.Second)
+	t := time.NewTicker(10 * time.Second)
 	for range t.C {
 		log.Println("Publishing mock tick data...")
 		ctx := metadata.NewContext(context.Background(), map[string]string{
