@@ -13,6 +13,14 @@ services:
     restart: always
     depends_on:
     - nats
+  oandaticksubscriber:
+    build:
+        dockerfile: ./services/OandaTickSubscriber/Dockerfile
+        context: ./
+    command: --broker nats --registry nats --transport nats --broker_address nats:4222 --registry_address nats:4222 --transport_address nats:4222
+    restart: always
+    depends_on:
+    - nats
   tickrecorder:
     build:
       dockerfile: ./services/TickRecorder/Dockerfile
