@@ -11,6 +11,7 @@ Install [Docker](https://www.docker.com/). Then run:
 
 ```bash
 $ docker build -t openalgotplatform_go:0.1 .
+$ docker-compose build
 $ docker-compose up
 ```
 
@@ -19,11 +20,9 @@ A simple microservice will start up. It contains:
 - A greeter microservice
 - A mock tick data generator
 - A tick data subscriber
-- Consul for registry
+- NATS for broker, transport and registry
 
-HTTP is still used for communication between services, but that will change when I get more time.
-
-Practice writing a client that connects to the sidecar and sends a request to the greeter microservice. Example code for python and ruby can be found [here](https://github.com/micro/micro/tree/master/examples/greeter/client). This is an example of a synchroous call. For asynchronous try to hook into the "go.micro.srv.TickRecorder" topic, through the sidecar.
+Practice writing a client that connects to the sidecar and sends a request to the greeter microservice. Example code for python and ruby can be found [here](https://github.com/micro/micro/tree/master/examples/greeter/client). This is an example of a synchronous call. For asynchronous try to hook into the `go.micro.srv.TickRecorder` topic, through the sidecar.
 
 When you are done run:
 
@@ -36,13 +35,13 @@ The git repo is located [here](https://open-algot.servebeer.com/).
 
 Pushing directly to `master` and `develop` is discouraged. Use the [git flow](http://danielkummer.github.io/git-flow-cheatsheet/) methodology for merging features.
 
-I (nii236) will probably be pushing directly to `develop` in the early stages while I try to get a basic workflow happening for other developers to start working on their on features.
+I (nii236) will probably be pushing directly to `develop` in the early stages while I try to get a basic workflow happening for other developers to start working on their own features.
 
 # Common Technologies
 We all use different stacks, technologies and languages. We come from different industries. But to work together, we need to have common ground. I (nii236) propose the following common skills and technologies:
 
 - Git
-- Micro
+- [Micro](https://github.com/micro/micro)
 - [NATS](nats.io)
 - [Docker](https://www.docker.com/)
 - [Protocol Buffers](https://developers.google.com/protocol-buffers/)
@@ -90,7 +89,7 @@ At this point in time, only a Go library is available for direct connection to t
 ## GraphAnalyser
 `GraphAnalyser` is a stand alone tool that takes data dumps from other modules like the backtester which contain information about trades performed, and makes equity curves, and calculates other metrics (Alpha, Sharpe Ratio, etc.)
 
-## TickProvider
+## TickProvider (Server)
 `TickProvider` will fetch the tick data from the database and return it to the requester. It handles both ticker and OHLC requests.
 
 ```
@@ -130,8 +129,8 @@ message OHLCResponse {
 }
 ```
 
-## TickSubscriber
-`TickSubscriber` subscribes to a broker's API, and on each tick will send the data to the database for recording. This service does not serve any clients. It is an automatic process which will publish each tick onto the message queue for a database to pick up.
+## TickSubscriber (Client)
+`TickSubscriber` subscribes to a broker's API, and on each tick will send the data to another service for recording. This service does not serve any clients. It is an automatic process which will publish each tick onto the message queue for a database to pick up.
 
 There will need to be many different types of `TickSubscriber`, one for each type of forex broker.
 
@@ -149,7 +148,7 @@ message Tick {
 }
 ```
 
-## Greeter
+## Greeter (Server)
 `Greeter` is a simple example of how to build a microservice. It will also form the basis on how to document a microservice in this document.
 
 It receives a request and replies with `Hello` with the request string concatenated. It will show how to build and use the:
