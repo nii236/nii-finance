@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package go.srv.TickRecorder;
 
+option java_package = "com.slack.openalgot";
+option java_outer_classname = "MarketEventProtos";
+
 message Tick {
         int64 time = 1;
         double bid = 2;
