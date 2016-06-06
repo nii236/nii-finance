@@ -17,58 +17,32 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='test.proto',
-  package='tutorial',
-  serialized_pb=_b('\n\ntest.proto\x12\x08tutorial\"\xda\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x02(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12+\n\x05phone\x18\x04 \x03(\x0b\x32\x1c.tutorial.Person.PhoneNumber\x1aM\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x02(\t\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.tutorial.Person.PhoneType:\x04HOME\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"/\n\x0b\x41\x64\x64ressBook\x12 \n\x06person\x18\x01 \x03(\x0b\x32\x10.tutorial.Person')
+  package='openalgot',
+  serialized_pb=_b('\n\ntest.proto\x12\topenalgot\"\'\n\x0bMessageData\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x02(\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
-_PERSON_PHONETYPE = _descriptor.EnumDescriptor(
-  name='PhoneType',
-  full_name='tutorial.Person.PhoneType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='MOBILE', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='HOME', index=1, number=1,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='WORK', index=2, number=2,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=200,
-  serialized_end=243,
-)
-_sym_db.RegisterEnumDescriptor(_PERSON_PHONETYPE)
 
-
-_PERSON_PHONENUMBER = _descriptor.Descriptor(
-  name='PhoneNumber',
-  full_name='tutorial.Person.PhoneNumber',
+_MESSAGEDATA = _descriptor.Descriptor(
+  name='MessageData',
+  full_name='openalgot.MessageData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='number', full_name='tutorial.Person.PhoneNumber.number', index=0,
+      name='name', full_name='openalgot.MessageData.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='tutorial.Person.PhoneNumber.type', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=1,
+      name='id', full_name='openalgot.MessageData.id', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -77,57 +51,6 @@ _PERSON_PHONENUMBER = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=121,
-  serialized_end=198,
-)
-
-_PERSON = _descriptor.Descriptor(
-  name='Person',
-  full_name='tutorial.Person',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='tutorial.Person.name', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='id', full_name='tutorial.Person.id', index=1,
-      number=2, type=5, cpp_type=1, label=2,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='email', full_name='tutorial.Person.email', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='phone', full_name='tutorial.Person.phone', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[_PERSON_PHONENUMBER, ],
-  enum_types=[
-    _PERSON_PHONETYPE,
   ],
   options=None,
   is_extendable=False,
@@ -135,68 +58,17 @@ _PERSON = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=243,
+  serialized_end=64,
 )
 
+DESCRIPTOR.message_types_by_name['MessageData'] = _MESSAGEDATA
 
-_ADDRESSBOOK = _descriptor.Descriptor(
-  name='AddressBook',
-  full_name='tutorial.AddressBook',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='person', full_name='tutorial.AddressBook.person', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=245,
-  serialized_end=292,
-)
-
-_PERSON_PHONENUMBER.fields_by_name['type'].enum_type = _PERSON_PHONETYPE
-_PERSON_PHONENUMBER.containing_type = _PERSON
-_PERSON.fields_by_name['phone'].message_type = _PERSON_PHONENUMBER
-_PERSON_PHONETYPE.containing_type = _PERSON
-_ADDRESSBOOK.fields_by_name['person'].message_type = _PERSON
-DESCRIPTOR.message_types_by_name['Person'] = _PERSON
-DESCRIPTOR.message_types_by_name['AddressBook'] = _ADDRESSBOOK
-
-Person = _reflection.GeneratedProtocolMessageType('Person', (_message.Message,), dict(
-
-  PhoneNumber = _reflection.GeneratedProtocolMessageType('PhoneNumber', (_message.Message,), dict(
-    DESCRIPTOR = _PERSON_PHONENUMBER,
-    __module__ = 'test_pb2'
-    # @@protoc_insertion_point(class_scope:tutorial.Person.PhoneNumber)
-    ))
-  ,
-  DESCRIPTOR = _PERSON,
+MessageData = _reflection.GeneratedProtocolMessageType('MessageData', (_message.Message,), dict(
+  DESCRIPTOR = _MESSAGEDATA,
   __module__ = 'test_pb2'
-  # @@protoc_insertion_point(class_scope:tutorial.Person)
+  # @@protoc_insertion_point(class_scope:openalgot.MessageData)
   ))
-_sym_db.RegisterMessage(Person)
-_sym_db.RegisterMessage(Person.PhoneNumber)
-
-AddressBook = _reflection.GeneratedProtocolMessageType('AddressBook', (_message.Message,), dict(
-  DESCRIPTOR = _ADDRESSBOOK,
-  __module__ = 'test_pb2'
-  # @@protoc_insertion_point(class_scope:tutorial.AddressBook)
-  ))
-_sym_db.RegisterMessage(AddressBook)
+_sym_db.RegisterMessage(MessageData)
 
 
 # @@protoc_insertion_point(module_scope)

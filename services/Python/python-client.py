@@ -13,15 +13,14 @@ payload = {"jsonrpc": "2.0",
            "params": [{"name": "Jacob"}],
            "id": 99}
 
-person = test_pb2.Person()
-person.id = 1234
-person.name = "John Doe"
-person.email = "jdoe@example.com"
+msg = test_pb2.MessageData()
+msg.id = 1234
+msg.name = "John Doe"
 
 url = "http://127.0.0.1:4000"
 
 # POST with protobuf 
-r = requests.post(url, data=person.SerializeToString())
+r = requests.post(url, data=msg.SerializeToString())
 
 print r.text
 print r.headers['content-type']

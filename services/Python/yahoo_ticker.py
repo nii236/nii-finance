@@ -60,19 +60,19 @@ def application(request):
     
     #dispatcher["postMessage"] = lambda s: "hello " + s["name"]
 
-    person = test_pb2.Person()
-    person.ParseFromString(request.data)
+    msg = test_pb2.MessageData()
+    msg.ParseFromString(request.data)
     
     #response = JSONRPCResponseManager.handle(
     #    request.data, dispatcher)
     #return Response(response.json, mimetype='application/json')
 
-    return Response(person.SerializeToString(), mimetype='application/octet-stream')
+    return Response(msg.SerializeToString(), mimetype='application/octet-stream')
 
 
 if __name__ == '__main__':
     print "registering service"
-    register()
+    #register()
     print "running service"
     run_simple('localhost', 4000, application)
     
