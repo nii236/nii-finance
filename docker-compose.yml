@@ -23,8 +23,6 @@ services:
     - nats
 
   yahoo_ticker:
-    build:
-      context: ./services/Python
     image: micro/python
     restart: always
     ports:

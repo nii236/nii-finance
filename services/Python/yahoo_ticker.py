@@ -62,7 +62,7 @@ def application(request):
 
     person = test_pb2.Person()
     person.ParseFromString(request.data)
-
+    
     #response = JSONRPCResponseManager.handle(
     #    request.data, dispatcher)
     #return Response(response.json, mimetype='application/json')
@@ -71,7 +71,9 @@ def application(request):
 
 
 if __name__ == '__main__':
+    print "registering service"
     register()
+    print "running service"
     run_simple('localhost', 4000, application)
     
     
