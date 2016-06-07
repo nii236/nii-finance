@@ -7,8 +7,10 @@ import (
 	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 )
 
+// Tick is a struct that contains Tick handlers
 type Tick struct{}
 
+// Handle will respond to relevant messages on the topic it is registered
 func (e *Tick) Handle(ctx context.Context, msg *proto.Tick) error {
 	log.Print("Handler received tick")
 	log.Println("Time", msg.Time)
