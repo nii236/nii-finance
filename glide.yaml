@@ -13,3 +13,4 @@ import:
   subpackages:
   - context
 - package: github.com/pusher-community/pusher-websocket-go
+- package: github.com/nats-io/nats

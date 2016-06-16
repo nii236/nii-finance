@@ -3,21 +3,20 @@ package subscriber
 import (
 	"log"
 
+	"github.com/micro/go-micro/client"
 	"golang.org/x/net/context"
 	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
+	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/publisher"
 )
 
 // Tick is a struct that contains Tick handlers
-type Tick struct{}
+type Tick struct {
+	Client client.Client
+}
 
 // Handle will respond to relevant messages on the topic it is registered
 func (e *Tick) Handle(ctx context.Context, msg *proto.Tick) error {
-	log.Print("Handler received tick")
-	log.Println("Time", msg.Time)
-	log.Println("Bid", msg.Bid)
-	log.Println("Ask", msg.Ask)
-	log.Println("Last", msg.Last)
-	log.Println("Pair", msg.Pair)
-	log.Println("Broker", msg.Broker)
+	log.Print("Handler received tick data. Publishing...")
+	publisher.PublishTick(msg)
 	return nil
 }

@@ -25,6 +25,7 @@ type trade struct {
 	Amount    float64 `json:"amount"`
 	Type      int     `json:"type"`
 	ID        int     `json:"id"`
+	Broker    string
 }
 
 func main() {
@@ -45,12 +46,14 @@ func publish(data interface{}) {
 
 	t := &trade{}
 	json.Unmarshal([]byte(data.(string)), t)
+	t.Broker = "bitstamp"
 	log.Println("Unmarshalled:", t)
 	ctx := metadata.NewContext(context.Background(), metadata.MD{"X-User-Id": []string{"BitstampTickSubscriber"}})
 	msg := client.NewPublication("go.micro.srv.BitstampRecorder", &proto.Trade{
 		Time:   t.Timestamp,
 		Price:  t.Price,
 		Amount: t.Amount,
+		Broker: t.Broker,
 	})
 	if err := client.Publish(ctx, msg); err != nil {
 		log.Println("publish err: ", err)

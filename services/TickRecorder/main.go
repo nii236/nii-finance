@@ -16,7 +16,9 @@ import (
 )
 
 func opts(o *micro.Options) {
-	o.Server = server.NewServer()
+	o.Server = server.NewServer(func(o *server.Options) {
+		o.Name = "go.micro.srv.tickrecorder"
+	})
 }
 
 func handle() {
