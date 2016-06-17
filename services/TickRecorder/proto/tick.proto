@@ -17,4 +17,5 @@ message Trade {
         double amount = 3;
         int32 type = 4;
         string broker = 6;
+        string pair = 7;
 }

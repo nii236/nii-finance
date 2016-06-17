@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"sync"
+	"time"
 
 	"github.com/micro/go-micro/cmd"
 	_ "github.com/micro/go-plugins/broker/nats"
@@ -49,11 +50,15 @@ func publish(data interface{}) {
 	t.Broker = "bitstamp"
 	log.Println("Unmarshalled:", t)
 	ctx := metadata.NewContext(context.Background(), metadata.MD{"X-User-Id": []string{"BitstampTickSubscriber"}})
+	now := time.Now().UnixNano()
+	log.Println("Current Time:", now)
 	msg := client.NewPublication("go.micro.srv.BitstampRecorder", &proto.Trade{
-		Time:   t.Timestamp,
+		Time:   now,
 		Price:  t.Price,
 		Amount: t.Amount,
 		Broker: t.Broker,
+		Type:   int32(t.Type),
+		Pair:   "BTCUSD",
 	})
 	if err := client.Publish(ctx, msg); err != nil {
 		log.Println("publish err: ", err)

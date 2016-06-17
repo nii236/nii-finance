@@ -43,8 +43,10 @@ func main() {
 			"X-From-Id": "script",
 		})
 		tmpbid := 100.0 + rand.Float64()
+		now := time.Now().UnixNano()
+		log.Println("Current Time:", now)
 		msg := client.NewPublication("go.micro.srv.TickRecorder", &proto.Tick{
-			Time:   time.Now().Unix(),
+			Time:   now,
 			Bid:    tmpbid,
 			Ask:    tmpbid + r.Float64(),
 			Last:   100.0 + r.Float64(),

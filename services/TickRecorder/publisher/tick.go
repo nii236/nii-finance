@@ -3,7 +3,6 @@ package publisher
 import (
 	"fmt"
 	"log"
-	"strconv"
 
 	nats "github.com/nats-io/nats"
 
@@ -12,8 +11,11 @@ import (
 
 func PublishTick(t *tickproto.Tick) {
 	broker := t.Broker
-	last := strconv.FormatFloat(t.Last, 'f', -1, 64)
-	time := strconv.FormatInt(t.Time, 10)
+	last := t.Last
+	ask := t.Ask
+	bid := t.Bid
+	pair := t.Pair
+	time := t.Time
 
 	nc, err := nats.Connect("nats://nats:4222")
 	if err != nil {
@@ -21,7 +23,7 @@ func PublishTick(t *tickproto.Tick) {
 	}
 	defer nc.Close()
 
-	msg := fmt.Sprintf("tick,broker=%s value=%s %s", broker, last, time)
+	msg := fmt.Sprintf("tick,broker=%s,pair=%s,ask=%f,bid=%f,last=%f %d", broker, pair, ask, bid, last, time)
 	if err := nc.Publish("go.micro.telegraf", []byte(msg)); err != nil {
 		log.Println(err)
 	}
