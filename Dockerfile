@@ -1,6 +1,6 @@
 FROM golang:1.6-alpine
 RUN apk update && apk add git
 RUN go get github.com/Masterminds/glide
-COPY . /go/src/open-algot.servebeer.com/open-algot/open-algot-platform/
-WORKDIR /go/src/open-algot.servebeer.com/open-algot/open-algot-platform
+COPY . /go/src/github.com/nii236/nii-finance
+WORKDIR /go/src/github.com/nii236/nii-finance
 RUN glide up

@@ -1,0 +1,7 @@
+package openalgot;
+
+message MessageData {
+	required string name = 1;
+	required int32 id = 2;
+}
+
