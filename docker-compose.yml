@@ -29,6 +29,12 @@ services:
     command: --broker nats --registry nats --transport nats --broker_address nats:4222 --registry_address nats:4222 --transport_address nats:4222
     depends_on:
     - nats
+  java_consumer:
+    build: ./services/javaconsumer/
+    restart: always
+    command: -s nats://nats:4222 "go.micro.srv.BitstampRecorder"
+    depends_on:
+    - nats
   sidecar:
     build:
       dockerfile: ./services/Sidecar/Dockerfile
