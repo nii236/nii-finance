@@ -1,5 +1,5 @@
-hash: 1c4999e436181afdfca4080ea07092904cfdf6fcad36db2498914be603483531
-updated: 2016-06-16T18:48:59.073903484+08:00
+hash: 2a8dc8a87fb668ad614e0ef98c18cf1933f64bdef851aa77763ae4ea450b078c
+updated: 2016-06-24T15:12:01.409512368+08:00
 imports:
 - name: github.com/eclipse/paho.mqtt.golang
   version: 45f9b18f4864c81d49c3ed01e5faec9eeb05de31
@@ -9,12 +9,16 @@ imports:
   version: 0c1f6d65b5a189c2250d10e71a5506f06f9fa0a0
   subpackages:
   - proto
+- name: github.com/gorilla/context
+  version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
 - name: github.com/gorilla/handlers
   version: 66e6c6f01d8da976ee113437745ca029c2b585a6
+- name: github.com/gorilla/mux
+  version: 9fa818a44c2bf1396a17f9d5a3c0f6dd39d2ff8e
 - name: github.com/gorilla/websocket
   version: a68708917c6a4f06314ab4e52493cc61359c9d42
 - name: github.com/hashicorp/consul
-  version: 6d35960361f10a74eb1454bedef24ab7f87a636e
+  version: 09cfda47ed103910a8e1af76fa378a7e6acd5310
   subpackages:
   - api
   - watch
@@ -28,7 +32,7 @@ imports:
 - name: github.com/micro/cli
   version: 3d2263bb092286dde294a31049c92665f8373820
 - name: github.com/micro/go-micro
-  version: d31cd76b8c4d317166cbc21fe3b27e93b0f37d0e
+  version: 7968a8eb6db0d96de0fcacd87a6730ac4f8f2753
   subpackages:
   - client
   - cmd
@@ -49,10 +53,9 @@ imports:
   - selector/cache
   - transport/http
   - server/debug
-  - selector/internal/blacklist
   - server/debug/proto
 - name: github.com/micro/go-plugins
-  version: a6da03ace5eea8093ab802a071970d3bb4be9075
+  version: a7849c8b4c7c98be7a9c71ae7381906a77b5c357
   subpackages:
   - broker/nats
   - registry/nats
@@ -60,7 +63,7 @@ imports:
 - name: github.com/micro/mdns
   version: d37bec73c909e7cb2930877f877e63dde9998d25
 - name: github.com/micro/micro
-  version: 6da9cf1551212ac201f11911869838becf768220
+  version: 8f9177c9239f57a3d9b8b8a88e7c8ed304bb3d0a
   subpackages:
   - car
   - internal/handler
@@ -77,7 +80,7 @@ imports:
 - name: github.com/mitchellh/hashstructure
   version: b098c52ef6beab8cd82bc4a32422cf54b890e8fa
 - name: github.com/nats-io/nats
-  version: ce9cdc9addff268b4b75b72f7b6dcca012954c6a
+  version: 2c1f69d5c7719e30736c024a3ab43430cc7d8ee2
   subpackages:
   - encoders/builtin
 - name: github.com/nats-io/nuid
@@ -89,7 +92,7 @@ imports:
 - name: github.com/Sirupsen/logrus
   version: f3cfb454f4c209e6668c95216c4744b8fddb2356
 - name: golang.org/x/net
-  version: d7bf3545bb0dacf009c535b3d3fbf53ac0a339ab
+  version: bc3663df0ac92f928d419e31e0d2af22e683a5a2
   subpackages:
   - context
   - websocket
@@ -102,7 +105,7 @@ imports:
   subpackages:
   - unix
 - name: google.golang.org/grpc
-  version: e78224b060cf3215247b7be455f80ea22e469b66
+  version: 69420784d409f9ff88b424436f52001b26144e20
   subpackages:
   - metadata
 devImports: []

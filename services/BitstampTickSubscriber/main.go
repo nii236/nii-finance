@@ -11,9 +11,9 @@ import (
 	_ "github.com/micro/go-plugins/registry/nats"
 	_ "github.com/micro/go-plugins/transport/nats"
 
+	proto "github.com/nii236/nii-finance/services/TickRecorder/proto"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/metadata"
-	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 
 	"github.com/micro/go-micro/client"
 	pusher "github.com/pusher-community/pusher-websocket-go"
@@ -42,17 +42,14 @@ func main() {
 }
 
 func publish(data interface{}) {
-	log.Println("Publishing trade data...")
-	log.Println(data.(string))
+	log.Println("Publishing trade data...", data.(string))
 
 	t := &trade{}
 	json.Unmarshal([]byte(data.(string)), t)
 	t.Broker = "bitstamp"
-	log.Println("Unmarshalled:", t)
 	ctx := metadata.NewContext(context.Background(), metadata.MD{"X-User-Id": []string{"BitstampTickSubscriber"}})
 	now := time.Now().UnixNano()
-	log.Println("Current Time:", now)
-	msg := client.NewPublication("go.micro.srv.BitstampRecorder", &proto.Trade{
+	msg := client.NewPublication("go.micro.srv.TickRecorder.Trade", &proto.Trade{
 		Time:   now,
 		Price:  t.Price,
 		Amount: t.Amount,
@@ -63,5 +60,4 @@ func publish(data interface{}) {
 	if err := client.Publish(ctx, msg); err != nil {
 		log.Println("publish err: ", err)
 	}
-	log.Println("Done")
 }

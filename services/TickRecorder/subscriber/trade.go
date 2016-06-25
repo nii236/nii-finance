@@ -5,8 +5,8 @@ import (
 
 	"github.com/micro/go-micro/client"
 	"golang.org/x/net/context"
-	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
-	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/publisher"
+	proto "github.com/nii236/nii-finance/services/TickRecorder/proto"
+	"github.com/nii236/nii-finance/services/TickRecorder/publisher"
 )
 
 // Trade is a struct that contains Trade handlers

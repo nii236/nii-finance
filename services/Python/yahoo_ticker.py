@@ -57,12 +57,12 @@ def register():
 @Request.application
 def application(request):
     # Dispatcher is dictionary {<method_name>: callable}
-    
-    #dispatcher["postMessage"] = lambda s: "hello " + s["name"]
+
+    # dispatcher["Say.Hello"] = lambda s: "hello " + s["name"]
 
     msg = test_pb2.MessageData()
     msg.ParseFromString(request.data)
-    
+
     #response = JSONRPCResponseManager.handle(
     #    request.data, dispatcher)
     #return Response(response.json, mimetype='application/json')
@@ -72,12 +72,12 @@ def application(request):
 
 if __name__ == '__main__':
     print "registering service"
-    #register()
+    register()
     print "running service"
     run_simple('localhost', 4000, application)
-    
-    
-    
+
+
+
 
 #r = requests.post('http://192.168.99.100:8081', json=payload)
 
@@ -110,5 +110,3 @@ if __name__ == '__main__':
 #DAX['Close'].plot()
 
 #print DAX.tail()
-
-

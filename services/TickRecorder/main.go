@@ -12,7 +12,7 @@ import (
 	_ "github.com/micro/go-plugins/broker/nats"
 	_ "github.com/micro/go-plugins/registry/nats"
 	_ "github.com/micro/go-plugins/transport/nats"
-	"open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/subscriber"
+	"github.com/nii236/nii-finance/services/TickRecorder/subscriber"
 )
 
 func opts(o *micro.Options) {
@@ -39,7 +39,7 @@ func main() {
 	s := micro.NewService(opts)
 	if err = s.Server().Subscribe(
 		server.NewSubscriber(
-			"go.micro.srv.TickRecorder",
+			"go.micro.srv.TickRecorder.Tick",
 			new(subscriber.Tick),
 		),
 	); err != nil {
@@ -48,7 +48,7 @@ func main() {
 
 	if err = s.Server().Subscribe(
 		server.NewSubscriber(
-			"go.micro.srv.BitstampRecorder",
+			"go.micro.srv.TickRecorder.Trade",
 			new(subscriber.Trade),
 		),
 	); err != nil {

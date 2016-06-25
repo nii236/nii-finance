@@ -6,7 +6,7 @@ import (
 
 	nats "github.com/nats-io/nats"
 
-	tickproto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
+	tickproto "github.com/nii236/nii-finance/services/TickRecorder/proto"
 )
 
 func PublishTrade(t *tickproto.Trade) {
@@ -31,5 +31,4 @@ func PublishTrade(t *tickproto.Trade) {
 	if err := nc.Publish("go.micro.telegraf", []byte(msg)); err != nil {
 		log.Println(err)
 	}
-	log.Println("Published.")
 }

@@ -13,8 +13,8 @@ import (
 	_ "github.com/micro/go-plugins/broker/nats"
 	_ "github.com/micro/go-plugins/registry/nats"
 	_ "github.com/micro/go-plugins/transport/nats"
+	proto "github.com/nii236/nii-finance/services/TickRecorder/proto"
 	"golang.org/x/net/context"
-	proto "open-algot.servebeer.com/open-algot/open-algot-platform/services/TickRecorder/proto"
 )
 
 type pairslice []string
@@ -44,8 +44,7 @@ func main() {
 		})
 		tmpbid := 100.0 + rand.Float64()
 		now := time.Now().UnixNano()
-		log.Println("Current Time:", now)
-		msg := client.NewPublication("go.micro.srv.TickRecorder", &proto.Tick{
+		msg := client.NewPublication("go.micro.srv.TickRecorder.Tick", &proto.Tick{
 			Time:   now,
 			Bid:    tmpbid,
 			Ask:    tmpbid + r.Float64(),
@@ -56,7 +55,6 @@ func main() {
 		if err := client.Publish(ctx, msg); err != nil {
 			log.Println("publish err: ", err)
 		}
-		log.Println("Done")
 	}
 	wg.Wait()
 }
