@@ -9,10 +9,11 @@
 
 ### Spinup
 ```
-$ go get -d github.com/nii236/nii-finance
+$ go get -d github.com/nii236/nii-finance/...
 $ cd $GOPATH/src/github.com/nii236/nii-finance
 $ glide install
-$ go build
+$ docker build -t openalgotplatform_go:0.1 .
+$ docker-compose build
 $ docker-compose up
 ```
 
