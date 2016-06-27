@@ -30,6 +30,16 @@ In its current state, the swarm will:
 - Write the data point into InfluxDB
 
 ## Things that you can do with this setup
+
+### For OS X Users
+If you use OS X (like myself), you'll need to know what your docker IP is and substitute that for any `localhost` you see below.
+
+```
+docker-machine ip
+```
+
+Will give you your docker machine's IP.
+
 ### Micro Web Console
 
 http://localhost:8082
