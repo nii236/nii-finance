@@ -1,5 +1,5 @@
-hash: 2a8dc8a87fb668ad614e0ef98c18cf1933f64bdef851aa77763ae4ea450b078c
-updated: 2016-06-24T15:12:01.409512368+08:00
+hash: 26ac752e9a9d63bb97be02a40d03dfdd009a10d9843657795d6dd35cc567ea2d
+updated: 2016-06-27T10:43:28.584654454+08:00
 imports:
 - name: github.com/eclipse/paho.mqtt.golang
   version: 45f9b18f4864c81d49c3ed01e5faec9eeb05de31
@@ -66,6 +66,7 @@ imports:
   version: 8f9177c9239f57a3d9b8b8a88e7c8ed304bb3d0a
   subpackages:
   - car
+  - web
   - internal/handler
   - internal/helper
   - internal/server
@@ -85,10 +86,19 @@ imports:
   - encoders/builtin
 - name: github.com/nats-io/nuid
   version: a5152d67cf63cbfb5d992a395458722a45194715
+- name: github.com/nii236/nii-finance
+  version: 3f4f5dd64b230344e3eea5f6db0965f5f811b93d
+  subpackages:
+  - vendor/github.com/serenize/snaker
+  - services/TickRecorder/proto
+  - services/TickRecorder/subscriber
+  - services/TickRecorder/publisher
 - name: github.com/pborman/uuid
   version: c55201b036063326c5b1b89ccfe45a184973d073
 - name: github.com/pusher-community/pusher-websocket-go
   version: 8872644df4d121342338d3296646ed78269d8a4b
+- name: github.com/serenize/snaker
+  version: 8824b61eca66d308fcb2d515287d3d7a28dba8d6
 - name: github.com/Sirupsen/logrus
   version: f3cfb454f4c209e6668c95216c4744b8fddb2356
 - name: golang.org/x/net

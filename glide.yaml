@@ -27,3 +27,6 @@ import:
 - package: google.golang.org/grpc
   subpackages:
   - metadata
+- package: github.com/nii236/nii-finance
+  subpackages:
+  - vendor/github.com/serenize/snaker
