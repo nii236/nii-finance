@@ -29,4 +29,4 @@ import:
   - metadata
 - package: github.com/nii236/nii-finance
   subpackages:
-  - vendor/github.com/serenize/snaker
+  - github.com/serenize/snaker
