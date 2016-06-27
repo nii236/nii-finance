@@ -43,8 +43,7 @@ go get github.com/nats-io/nats-top
 
 Run nats-top
 ```
-NATS_IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' niifinance_nats_1)
-nats-top -s $NATS_IP
+nats-top
 ```
 
 ### InfluxDB
