@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message Tick {
+	string pair = 1;
+	int64 time = 2;
+	int32 bid = 3;
+	int32 ask = 4;
+	int32 last = 5;
+}

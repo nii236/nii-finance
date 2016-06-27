@@ -1,3 +1,4 @@
 services/OandaTickSubscriber/OandaTickSubscriber
 services/TickRecorder/TickRecorder
 services/Sidecar/Sidecar
+vendor
