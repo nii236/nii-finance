@@ -1,4 +1,7 @@
 # Nii Finance Trading Swarm
+
+This repo is a complete demo of using [Micro](https://github.com/micro/micro) and [NATS](https://nats.io). Here is the relevant [blog post](https://oren.github.io/blog/micro.html).
+
 ## Installation
 
 ### Dependencies
@@ -25,6 +28,29 @@ In its current state, the swarm will:
 - Publish onto the NATS queue
 - Be received by the tickRecorder service
 - Write the data point into InfluxDB
+
+## Things that you can do with this setup
+### Micro Web Console
+
+http://localhost:8082
+
+### NATS
+
+Install nats-top
+```
+go get github.com/nats-io/nats-top
+```
+
+Run nats-top
+```
+nats-top
+```
+
+### InfluxDB
+
+Web console: http://localhost:8083  
+Change the database at the top right to `openalgot` and run this query: `select * from trade`
+
 
 ## Contributing
 
