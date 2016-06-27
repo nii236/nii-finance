@@ -35,13 +35,6 @@ services:
     command: -s nats://nats:4222 "go.micro.srv.TickRecorder.Trade"
     depends_on:
     - nats
-  # yahoo_ticker:
-  #   build: ./services/Python/
-  #   restart: always
-  #   ports:
-  #   - "4000:4000"
-  #   depends_on:
-  #   - nats
   sidecar:
     build:
       dockerfile: ./services/Sidecar/Dockerfile
