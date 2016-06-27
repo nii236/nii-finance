@@ -32,7 +32,7 @@ services:
   java_consumer:
     build: ./services/javaconsumer/
     restart: always
-    command: -s nats://nats:4222 "go.micro.srv.BitstampRecorder"
+    command: -s nats://nats:4222 "go.micro.srv.TickRecorder.Trade"
     depends_on:
     - nats
   yahoo_ticker:
