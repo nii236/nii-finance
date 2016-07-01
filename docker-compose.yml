@@ -55,6 +55,12 @@ services:
     - "8081:8081"
     depends_on:
     - nats
+  telegraf:
+    build: ./services/telegraf/
+    depends_on:
+      - nats
+      - influx
+    restart: always
   influx:
     image: influxdb:0.13-alpine
     ports:
@@ -62,9 +68,9 @@ services:
     - "8086:8086"
     depends_on:
     - nats
-  telegraf:
-    build: ./services/telegraf/
-    depends_on:
-    - nats
-    - influx
-    restart: always
+  chronograf:
+    image: chronograf:0.13
+    environment:
+      - CHRONOGRAF_BIND=0.0.0.0:10000
+    ports:
+    - "10000:10000"
