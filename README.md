@@ -1,6 +1,6 @@
 # Nii Finance Trading Swarm
 
-![micro](micro.gif)
+![micro](micro.png)
 
 This repo is a complete demo of using [Micro](https://github.com/micro/micro) and [NATS](https://nats.io). Here is the relevant [blog post](https://oren.github.io/blog/micro.html).
 
