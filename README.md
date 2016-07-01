@@ -63,6 +63,7 @@ nats-top
 Web console: http://localhost:8083  
 Change the database at the top right to `openalgot` and run this query: `select * from trade`
 
+Visualization (using [chronograph](https://influxdata.com/time-series-platform/chronograf/) : http://localhost:10000
 
 ## Contributing
 
